@@ -6,10 +6,9 @@
 /*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 17:04:49 by yang              #+#    #+#             */
-/*   Updated: 2021/11/18 09:45:02 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/22 14:57:35 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 #include <stdio.h>
@@ -33,7 +32,6 @@ static t_info	*initialize_info(t_info *st_info)
 	st_info->st_b = NULL;
 	st_info->half_len = 0;
 	st_info->first_round = true;
-	st_info->sorted_b = true;
 	return (st_info);
 }
 
@@ -52,8 +50,8 @@ t_node	*lstnew(int content)
 
 void	addfront(t_stack *stack, t_node *new)
 {
-	t_node *tail;
-	
+	t_node	*tail;
+
 	tail = stack->tail;
 	if (!tail)
 	{
@@ -72,7 +70,7 @@ void	addfront(t_stack *stack, t_node *new)
 	stack->count++;
 }
 
-void parse_arg(int argc, char *argv[])
+void	parse_arg(int argc, char *argv[])
 {
 	t_node	*new;
 	t_stack	*stack_a;
@@ -92,45 +90,23 @@ void parse_arg(int argc, char *argv[])
 	}
 	st_info->st_a = stack_a;
 	st_info->st_b = stack_b;
-
-	t_node *temp_a = stack_a->tail;
+	/*t_node *temp_a = stack_a->tail;
 	temp_a = temp_a->next;
 	do
 	{
 		printf("prev: %p\t add: %p\t content: %d\t next: %p\n", temp_a->prev, temp_a, temp_a->content, temp_a->next);
 		temp_a = temp_a->next;
-	} while (temp_a != stack_a->tail->next);
-
-
-	quickSort(st_info->st_a, st_info->st_a->count, st_info, 0);
-	//printf("tail a before partition: %p\n", st_info->st_a->tail);
-	/*partition(st_info->st_a, st_info->st_a->count, st_info);
-	partition(st_info->st_a, st_info->st_a->count, st_info);
-	sort_a3_b2(st_info);
-	push(st_info->st_a, st_info->st_b, 'a');
-	push(st_info->st_a, st_info->st_b, 'a');
-	partition(st_info->st_b, st_info->st_b->count, st_info);
-	sort_a3_b2(st_info);
-	push(st_info->st_a, st_info->st_b, 'a');
-	push(st_info->st_a, st_info->st_b, 'a'); */
-
-	temp_a = stack_a->tail->next;
+	} while (temp_a != stack_a->tail->next);*/
+	quicksort(st_info->st_a, st_info, st_info->st_a->count, 0);
+	/*t_node *temp_a = stack_a->tail->next;
 	do
 	{
 		printf("prev: %p\t add: %p\t content: %d\t next: %p\n", temp_a->prev, temp_a, temp_a->content, temp_a->next);
 		temp_a = temp_a->next;
-	} while (temp_a != stack_a->tail->next);
+	} while (temp_a != stack_a->tail->next);*/
 
-	printf("\nstack b:\n");
-	/*t_node *temp_b = stack_b->tail;
-	temp_b = temp_b->next;
-	do
-	{
-		printf("add: %p\t content: %d\t next: %p\n", temp_b, temp_b->content, temp_b->next);
-		temp_b = temp_b->next;
-	} while (temp_b != stack_b->tail->next);*/
+	//printf("\nstack b:\n");
 }
-
 
 int main(int argc, char* argv[])
 {

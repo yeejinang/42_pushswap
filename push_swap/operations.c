@@ -6,7 +6,7 @@
 /*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 22:09:42 by yang              #+#    #+#             */
-/*   Updated: 2021/11/17 15:47:33 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/22 13:50:02 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,10 @@ void	swap(t_stack *stack, char print)
 
 void	push(t_stack *st_push, t_stack *st_pop, char print)
 {
-	t_node *new;
-	
+	t_node	*new;
+
 	if (st_pop->count == 0)
 		return ;
-	//printf("number: %d\n", st_pop->tail->next->content);
 	new = lstnew(st_pop->tail->next->content);
 	addfront(st_push, new);
 	pop(st_pop);

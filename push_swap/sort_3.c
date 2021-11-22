@@ -6,7 +6,7 @@
 /*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 08:41:17 by yang              #+#    #+#             */
-/*   Updated: 2021/11/16 15:38:41 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/22 13:53:11 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ static void	sort_a2_b3_2(t_info *st_info)
 		else
 			write(1, "sb\n", 3);
 	}
-	else if (st_info->st_b->rotate_count && temp_b->content < temp_b->next->content)
+	else if (st_info->st_b->rotate_count
+		&& temp_b->content < temp_b->next->content)
 		reverse_rotate(st_info->st_b, 'b');
 }
 

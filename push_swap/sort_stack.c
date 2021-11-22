@@ -6,20 +6,35 @@
 /*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 09:05:15 by yang              #+#    #+#             */
-/*   Updated: 2021/11/18 09:46:05 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/22 15:58:53 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_stack(t_stack *head_Ref, t_info *st_info, int a, int b)
+void	init_sort(t_stack *head_ref, t_info *st_info, int size, int sort_num)
 {
-	/*if (head_Ref == st_info->stack_a)
-		st_info->sorted_b = true;*/
+	st_info->st_a->rotate_count = 0;
+	st_info->st_b->rotate_count = 0;
+	st_info->first_round = false;
+	if (head_ref == st_info->st_a)
+	{
+		st_info->a = size;
+		st_info->b = sort_num;
+	}
+	else
+	{
+		st_info->a = sort_num;
+		st_info->b = size;
+	}
+}
+
+void	sort_stack(t_stack *head_ref, t_info *st_info, int a, int b)
+{
 	if (a == 0 && b == 0)
 	{
+		printf("sorting a\n");
 		sort_a(st_info);
-		return ;
 	}
 	if (a == 3 && b == 0)
 	{
@@ -47,11 +62,10 @@ void	sort_stack(t_stack *head_Ref, t_info *st_info, int a, int b)
 		sort_a2_b3(st_info);
 	}
 	else
-	{
-		printf("sorting a3 b3\n");
-		sort_ab3(st_info);
+	{	printf("sorting a3 b3\n");
+		sort_a3_b3(st_info);
 	}
-	if (head_Ref == st_info->st_b)
+	if (head_ref == st_info->st_b)
 	{
 		while (b > 0)
 		{
@@ -59,7 +73,4 @@ void	sort_stack(t_stack *head_Ref, t_info *st_info, int a, int b)
 			b--;
 		}
 	}
-	//st_info->sorted_b = true;
-	st_info->st_a->sort_num = 0;
-	st_info->st_a->rotate_count = 0;
 }

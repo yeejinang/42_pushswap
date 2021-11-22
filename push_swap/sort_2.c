@@ -6,7 +6,7 @@
 /*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 08:29:10 by yang              #+#    #+#             */
-/*   Updated: 2021/11/17 15:58:35 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/22 14:11:26 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ static void	sort_a3_b2_2(t_info *st_info)
 		else
 			write(1, "sa\n", 3);
 	}
-	else if (st_info->st_a->rotate_count 
-			&& temp_a->content < temp_a->next->content)
+	else if (st_info->st_a->rotate_count
+		&& temp_a->content < temp_a->next->content)
 		reverse_rotate(st_info->st_a, 'a');
 }
 
@@ -69,19 +69,14 @@ void	sort_a3_b2(t_info *st_info)
 
 	temp_a = st_info->st_a->tail->next;
 	temp_b = st_info->st_b->tail->next;
-	printf("st_a count: %d\n", st_info->st_a->count);
 	if (st_info->st_a->count <= 3)
-	{
-		printf("sorting count smaller or equal to 3\n");
 		sort_a3_b2_1(st_info);
-	}
 	else
 	{
 		while (st_info->st_a->rotate_count
 			|| !(temp_a->content < temp_a->next->content
 				&& temp_a->next->content < temp_a->next->next->content))
 		{
-			printf("sorting count bigger than 3\n");
 			sort_a3_b2_2(st_info);
 			temp_a = st_info->st_a->tail->next;
 		}
