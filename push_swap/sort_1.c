@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yang <yang@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 16:01:05 by yang              #+#    #+#             */
-/*   Updated: 2021/11/22 14:11:12 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/22 22:33:44 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	sort_a3_b3(t_info *st_info)
 			sort_rotate_a(st_info);
 			sort_b(st_info);
 		}
-		else
+		else 
 			sort_rotate(st_info);
 	}
 }

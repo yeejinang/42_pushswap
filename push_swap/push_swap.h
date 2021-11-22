@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yang <yang@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 22:10:23 by yang              #+#    #+#             */
-/*   Updated: 2021/11/22 15:51:40 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/22 22:41:04 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,10 @@ typedef struct s_info
 	t_stack	*st_b;
 	int		half_len;
 	bool	first_round;
+	bool	last_round;
 	int		a;
 	int		b;
+	int		total;
 }	t_info;
 
 /*typedef struct s_info

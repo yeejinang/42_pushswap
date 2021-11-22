@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quicksort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yang <yang@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 10:53:06 by yang              #+#    #+#             */
-/*   Updated: 2021/11/22 11:50:56 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/22 23:02:37 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	quicksort(t_stack *head_ref, t_info *st_info, int size, int sort_num)
 
 	if (size <= 3)
 	{
+		//printf("sorting\n");
 		init_sort(head_ref, st_info, size, sort_num);
 		sort_stack(head_ref, st_info, st_info->a, st_info->b);
 		return ;
@@ -39,5 +40,6 @@ void	quicksort(t_stack *head_ref, t_info *st_info, int size, int sort_num)
 	quicksort(st_info->st_a, st_info, a, b);
 	if (a > 3)
 		a = 0;
+	//printf("******** quicksort b *******\n");
 	quicksort(st_info->st_b, st_info, b, a);
 }

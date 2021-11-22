@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_5.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yang <yang@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 13:13:46 by yang              #+#    #+#             */
-/*   Updated: 2021/11/22 13:58:46 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/22 22:30:44 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,22 @@ static void	sort_rotate_b3(t_info *st_info)
 	}
 }
 
+void	sort_check(t_info *st_info)
+{
+	t_node	*temp_a;
+	t_node	*temp_b;
+
+	temp_a = st_info->st_a->tail->next;
+	temp_b = st_info->st_b->tail->next;
+	if (!st_info->st_a->rotate_count && temp_a->content < temp_a->next->content
+		&& temp_a->next->content < temp_a->next->next->content)
+		sort_rotate_b(st_info);
+	else if ((!st_info->st_b->rotate_count
+			&& temp_b->content > temp_b->next->content
+			&& temp_b->next->content > temp_b->next->next->content))
+		sort_rotate_a(st_info);
+}
+
 void	sort_rotate(t_info *st_info)
 {
 	t_node	*temp_a;
@@ -87,6 +103,7 @@ void	sort_rotate(t_info *st_info)
 		|| !(temp_b->content > temp_b->next->content
 			&& temp_b->next->content > temp_b->next->next->content))
 	{
+		sort_check(st_info);
 		if (!st_info->st_a->rotate_count
 			&& temp_a->content < temp_a->next->content)
 			sort_rotate_b1(st_info);

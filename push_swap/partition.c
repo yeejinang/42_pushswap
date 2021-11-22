@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   partition.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yang <yang@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 16:44:51 by yang              #+#    #+#             */
-/*   Updated: 2021/11/22 15:56:21 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/22 23:30:41 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,23 +82,38 @@ static int	partition_b(t_info *st_info, int size)
 	return (st_info->half_len);
 }
 
-int	partition(t_stack *head_Ref, int size, t_info *st_info)
+int	partition(t_stack *head_ref, int size, t_info *st_info)
 {
 	int	half_len;
 
 	st_info->half_len = 0;
-	printf("go into partition\n");
-	if (head_Ref == st_info->st_a)
+	//printf("partitioning........... \n");
+	int i;
+
+	i = 0;
+	/*t_node *temp_a = head_ref->tail->next;
+	do
+	{
+		printf("prev: %p\t add: %p\t content: %d\t next: %p\n", temp_a->prev, temp_a, temp_a->content, temp_a->next);
+		temp_a = temp_a->next;
+	} while (temp_a != head_ref->tail->next && i++ <= size);*/
+
+	if (head_ref == st_info->st_b && size == (st_info->total / 2))
+	{
+		//printf("setting last round..... \n");
+		st_info->last_round = true;
+	}
+	if (head_ref == st_info->st_a)
 		half_len = partition_a(st_info, size); //refer to how many numbers were pushed to stack B
 	else
 		half_len = partition_b(st_info, size); //refer to how many numbers were pushed to stack A
-	while (!st_info->first_round && head_Ref->rotate_count)
+	while (!st_info->first_round && head_ref->count != size && head_ref->rotate_count)
 	{
-		if (head_Ref == st_info->st_a)
-			reverse_rotate(head_Ref, 'a');
+		//printf("reverse rotate stack\n");
+		if (head_ref == st_info->st_a)
+			reverse_rotate(head_ref, 'a');
 		else
-			reverse_rotate(head_Ref, 'b');
+			reverse_rotate(head_ref, 'b');
 	}
-	printf("done partition\n");
 	return (half_len);
 }

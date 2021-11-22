@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yang <yang@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 09:05:15 by yang              #+#    #+#             */
-/*   Updated: 2021/11/22 15:58:53 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/22 23:36:27 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,39 +32,19 @@ void	init_sort(t_stack *head_ref, t_info *st_info, int size, int sort_num)
 void	sort_stack(t_stack *head_ref, t_info *st_info, int a, int b)
 {
 	if (a == 0 && b == 0)
-	{
-		printf("sorting a\n");
 		sort_a(st_info);
-	}
 	if (a == 3 && b == 0)
-	{
-		printf("sorting a3 b0\n");
 		sort_a3_b0(st_info);
-	}
 	else if (a == 0 && b == 3)
-	{
-		printf("sorting a0 b3\n");
 		sort_a0_b3(st_info);
-	}
 	else if (a == 2 && b == 2)
-	{
-		printf("sorting a2 b2\n");
 		sort_a2_b2(st_info);
-	}
 	else if (a == 3 && b == 2)
-	{
-		printf("sorting a3 b2\n");
 		sort_a3_b2(st_info);
-	}
 	else if (a == 2 && b == 3)
-	{
-		printf("sorting a2 b3\n");
 		sort_a2_b3(st_info);
-	}
 	else
-	{	printf("sorting a3 b3\n");
 		sort_a3_b3(st_info);
-	}
 	if (head_ref == st_info->st_b)
 	{
 		while (b > 0)

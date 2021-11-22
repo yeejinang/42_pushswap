@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yang <yang@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 17:04:49 by yang              #+#    #+#             */
-/*   Updated: 2021/11/22 14:57:35 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/22 23:31:04 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ static t_info	*initialize_info(t_info *st_info)
 	st_info->st_b = NULL;
 	st_info->half_len = 0;
 	st_info->first_round = true;
+	st_info->last_round = false;
+	st_info->total = 0;
 	return (st_info);
 }
 
@@ -97,6 +99,7 @@ void	parse_arg(int argc, char *argv[])
 		printf("prev: %p\t add: %p\t content: %d\t next: %p\n", temp_a->prev, temp_a, temp_a->content, temp_a->next);
 		temp_a = temp_a->next;
 	} while (temp_a != stack_a->tail->next);*/
+	st_info->total = st_info->st_a->count;
 	quicksort(st_info->st_a, st_info, st_info->st_a->count, 0);
 	/*t_node *temp_a = stack_a->tail->next;
 	do
