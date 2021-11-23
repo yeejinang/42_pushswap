@@ -6,7 +6,7 @@
 #    By: yang <yang@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/16 10:41:40 by yang              #+#    #+#              #
-#    Updated: 2021/11/17 15:06:04 by yang             ###   ########.fr        #
+#    Updated: 2021/11/23 18:19:05 by yang             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,14 +18,14 @@ LIBFTDIC	= ../libft
 
 LIBFT		= libft.a
 
-TEST		= test
+TEST		= push_swap
 
 $(LIBFT)	:
 				make -C $(LIBFTDIC)
 
-$(TEST)		:	parse_arg.c operations.c median.c partition.c quicksort.c \
+$(TEST)		:	check_args.c parse_arg.c operations.c median.c partition.c quicksort.c \
 				sort_stack.c sort_1.c sort_2.c sort_3.c sort_4.c sort_5.c sort_6.c
-				$(CC) parse_arg.c operations.c median.c partition.c quicksort.c \
+				$(CC) $(CFLAGS) check_args.c parse_arg.c operations.c median.c partition.c quicksort.c \
 				sort_stack.c sort_1.c sort_2.c sort_3.c sort_4.c sort_5.c sort_6.c -o $(TEST) $(LIBFTDIC)/$(LIBFT)
 
 all			: $(LIBFT)

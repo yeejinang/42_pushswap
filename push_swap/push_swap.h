@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yang <yang@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 22:10:23 by yang              #+#    #+#             */
-/*   Updated: 2021/11/22 22:41:04 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/23 15:21:57 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ typedef struct s_info
 	t_list	**stack_b;
 }	t_info; */
 
+void	check_args(t_stack *st_a, char *argv);
 t_node	*lstnew(int content);
 void	addfront(t_stack *stack, t_node *new);
 void	pop(t_stack *stack);

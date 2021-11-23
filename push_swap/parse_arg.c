@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yang <yang@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 17:04:49 by yang              #+#    #+#             */
-/*   Updated: 2021/11/22 23:31:04 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/23 18:44:22 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,30 @@ void	addfront(t_stack *stack, t_node *new)
 	stack->count++;
 }
 
-void	parse_arg(int argc, char *argv[])
+t_stack	*add_list(int argc, char *argv[], t_stack *stack_a)
 {
 	t_node	*new;
+	char	**split;
+	int		total;
+
+	total = 0;
+	split = NULL;
+	while (--argc >= 1)
+	{
+		split = ft_split(argv[argc], ' ');
+		total = count(argv[argc], ' ');
+		while (--total >= 0)
+		{
+			check_args(stack_a, split[total]);
+			new = lstnew(ft_atoi(split[total]));
+			addfront(stack_a, new);
+		}
+	}
+	return (stack_a);
+}
+
+void	parse_arg(int argc, char *argv[])
+{
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	t_info	*st_info;
@@ -85,36 +106,28 @@ void	parse_arg(int argc, char *argv[])
 	stack_a = initialize_stack(stack_a);
 	stack_b = initialize_stack(stack_b);
 	st_info = initialize_info(st_info);
-	while (--argc >= 1)
-	{
-		new = lstnew(ft_atoi(argv[argc]));
-		addfront(stack_a, new);
-	}
+	stack_a = add_list(argc, argv, stack_a);
 	st_info->st_a = stack_a;
 	st_info->st_b = stack_b;
-	/*t_node *temp_a = stack_a->tail;
-	temp_a = temp_a->next;
-	do
-	{
-		printf("prev: %p\t add: %p\t content: %d\t next: %p\n", temp_a->prev, temp_a, temp_a->content, temp_a->next);
-		temp_a = temp_a->next;
-	} while (temp_a != stack_a->tail->next);*/
 	st_info->total = st_info->st_a->count;
 	quicksort(st_info->st_a, st_info, st_info->st_a->count, 0);
-	/*t_node *temp_a = stack_a->tail->next;
-	do
-	{
-		printf("prev: %p\t add: %p\t content: %d\t next: %p\n", temp_a->prev, temp_a, temp_a->content, temp_a->next);
-		temp_a = temp_a->next;
-	} while (temp_a != stack_a->tail->next);*/
-
-	//printf("\nstack b:\n");
+	free(stack_a);
+	free(stack_b);
+	free(st_info);
 }
 
 int main(int argc, char* argv[])
 {
-	printf("argc: %d\n", argc);
+
+	//printf("argc: %d\n", argc);
+	/*if (argc == 2)
+	{
+		split = ft_split(argv[1], ' ');
+		parse_arg(count(argv[1], ' '), split, 'y');
+	}
+	else if (argc > 1)
+		parse_arg(argc, argv, 'n');*/
+
 	if (argc > 1)
 		parse_arg(argc, argv);
-	
 }

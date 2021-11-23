@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yang <yang@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 17:01:30 by yang              #+#    #+#             */
-/*   Updated: 2021/05/22 22:40:06 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/23 16:36:49 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count(char const *s, char c)
+int	count(char const *s, char c)
 {
 	int	i;
 	int	count;
