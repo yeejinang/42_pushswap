@@ -6,7 +6,7 @@
 /*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 22:10:23 by yang              #+#    #+#             */
-/*   Updated: 2021/11/23 15:21:57 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/24 19:16:10 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define MORE_THAN_THREE 4
 
 # include "../libft/libft.h"
+# include "../libft/get_next_line.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdarg.h>
@@ -49,20 +50,12 @@ typedef struct s_info
 	int		total;
 }	t_info;
 
-/*typedef struct s_info
-{
-	int		rotate_count;
-	int		numbers_a;
-	int		numbers_b;
-	bool	first_round;
-	bool	rotate_a;
-	bool	rotate_b;
-	bool	sorted_b;
-	t_list	**stack_a;
-	t_list	**stack_b;
-}	t_info; */
-
+t_stack	*initialize_stack(t_stack *stack);
+t_info	*initialize_info(t_info *st_info);
+t_stack	*add_list(int argc, char *argv[], t_stack *stack_a);
+void	free_elem(t_info *st_info);
 void	check_args(t_stack *st_a, char *argv);
+int		check_sorted(t_stack *st_a);
 t_node	*lstnew(int content);
 void	addfront(t_stack *stack, t_node *new);
 void	pop(t_stack *stack);
@@ -87,6 +80,7 @@ void	sort_a2_b3(t_info *st_info);
 void    sort_a3_b3(t_info *st_info);
 void	sort_ab3(t_info *st_info);
 void	sort_rotate(t_info *st_info);
+void	free_elem(t_info *st_info);
 
 /*
 100 numbers:

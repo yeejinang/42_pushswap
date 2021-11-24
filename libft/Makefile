@@ -6,7 +6,7 @@
 #    By: yang <yang@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/20 17:54:25 by yang              #+#    #+#              #
-#    Updated: 2021/10/26 09:31:59 by yang             ###   ########.fr        #
+#    Updated: 2021/11/24 14:48:23 by yang             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRCS		= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c \
 				ft_toupper.c ft_tolower.c ft_calloc.c ft_strdup.c \
 				ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c \
 				ft_itoa.c ft_strmapi.c ft_putchar_fd.c ft_putstr_fd.c \
-				ft_putendl_fd.c ft_putnbr_fd.c
+				ft_putendl_fd.c ft_putnbr_fd.c get_next_line_bonus.c \
+				get_next_line_utils_bonus.c
 
 OBJS		= $(SRCS:.c=.o)
 

@@ -6,14 +6,14 @@
 /*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 17:04:49 by yang              #+#    #+#             */
-/*   Updated: 2021/11/23 18:44:22 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/24 16:53:08 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-static t_stack	*initialize_stack(t_stack *stack)
+t_stack	*initialize_stack(t_stack *stack)
 {
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!stack)
@@ -25,7 +25,7 @@ static t_stack	*initialize_stack(t_stack *stack)
 	return (stack);
 }
 
-static t_info	*initialize_info(t_info *st_info)
+t_info	*initialize_info(t_info *st_info)
 {
 	st_info = (t_info *)malloc(sizeof(t_info));
 	st_info->st_a = NULL;
@@ -89,12 +89,14 @@ t_stack	*add_list(int argc, char *argv[], t_stack *stack_a)
 			check_args(stack_a, split[total]);
 			new = lstnew(ft_atoi(split[total]));
 			addfront(stack_a, new);
+			free(split[total]);
 		}
+		free(split);
 	}
 	return (stack_a);
 }
 
-void	parse_arg(int argc, char *argv[])
+/*void	parse_arg(int argc, char *argv[])
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
@@ -118,16 +120,6 @@ void	parse_arg(int argc, char *argv[])
 
 int main(int argc, char* argv[])
 {
-
-	//printf("argc: %d\n", argc);
-	/*if (argc == 2)
-	{
-		split = ft_split(argv[1], ' ');
-		parse_arg(count(argv[1], ' '), split, 'y');
-	}
-	else if (argc > 1)
-		parse_arg(argc, argv, 'n');*/
-
 	if (argc > 1)
 		parse_arg(argc, argv);
-}
+}*/

@@ -6,7 +6,7 @@
 /*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 13:14:18 by yang              #+#    #+#             */
-/*   Updated: 2021/11/23 18:19:46 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/24 18:35:40 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,18 @@ void	check_args(t_stack *st_a, char *argv)
 		write(1, "Error\n", 6);
 		exit(1);
 	}
+}
+
+int	check_sorted(t_stack *st_a)
+{
+	t_node	*temp;
+
+	temp = st_a->tail->next;
+	while (temp != st_a->tail)
+	{
+		if (temp->content > temp->next->content)
+			return (0);
+		temp = temp->next;
+	}
+	return (1);
 }
