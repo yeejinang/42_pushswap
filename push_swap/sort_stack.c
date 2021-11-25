@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yang <yang@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 09:05:15 by yang              #+#    #+#             */
-/*   Updated: 2021/11/22 23:36:27 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/25 15:24:30 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	init_sort(t_stack *head_ref, t_info *st_info, int size, int sort_num)
 void	sort_stack(t_stack *head_ref, t_info *st_info, int a, int b)
 {
 	if (a == 0 && b == 0)
-		sort_a(st_info);
+		sort_a3_b0(st_info);
 	if (a == 3 && b == 0)
 		sort_a3_b0(st_info);
 	else if (a == 0 && b == 3)
@@ -41,15 +41,13 @@ void	sort_stack(t_stack *head_ref, t_info *st_info, int a, int b)
 		sort_a2_b2(st_info);
 	else if (a == 3 && b == 2)
 		sort_a3_b2(st_info);
-	else if (a == 2 && b == 3)
-		sort_a2_b3(st_info);
 	else
 		sort_a3_b3(st_info);
 	if (head_ref == st_info->st_b)
 	{
 		while (b > 0)
 		{
-			push(st_info->st_a, st_info->st_b, 'a');
+			push(st_info->st_a, st_info->st_b, 'a', st_info);
 			b--;
 		}
 	}

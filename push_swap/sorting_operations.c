@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   sorting_operations.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/28 22:09:42 by yang              #+#    #+#             */
-/*   Updated: 2021/11/25 10:33:30 by yang             ###   ########.fr       */
+/*   Created: 2021/11/25 10:10:44 by yang              #+#    #+#             */
+/*   Updated: 2021/11/25 16:16:42 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	pop(t_stack *stack)
 {
@@ -38,7 +37,7 @@ void	pop(t_stack *stack)
 	stack->count--;
 }
 
-void	swap(t_stack *stack, char print)
+void	swap(t_stack *stack, char print, t_info *st_info)
 {
 	t_node	*first;
 	t_node	*second;
@@ -52,14 +51,12 @@ void	swap(t_stack *stack, char print)
 	first->content = second->content;
 	second->content = temp;
 	if (print == 'a')
-		write(1, "sa\n", 3);
+		ft_strlcpy(st_info->instru, "sa\n", 4);
 	else if (print == 'b')
-		write(1, "sb\n", 3);
-	else if (print == 'c')
-		write (1, "ss\n", 3);
+		ft_strlcpy(st_info->instru, "sb\n", 4);
 }
 
-void	push(t_stack *st_push, t_stack *st_pop, char print)
+void	push(t_stack *st_push, t_stack *st_pop, char print, t_info *st_info)
 {
 	t_node	*new;
 
@@ -69,35 +66,31 @@ void	push(t_stack *st_push, t_stack *st_pop, char print)
 	addfront(st_push, new);
 	pop(st_pop);
 	if (print == 'a')
-		write(1, "pa\n", 3);
+		ft_strlcpy(st_info->instru, "pa\n", 4);
 	else if (print == 'b')
-		write(1, "pb\n", 3);
+		ft_strlcpy(st_info->instru, "pb\n", 4);
 }
 
-void	rotate(t_stack *stack, char print)
+void	rotate(t_stack *stack, char print, t_info *st_info)
 {
 	if (stack->count <= 1)
 		return ;
 	stack->tail = stack->tail->next;
 	stack->rotate_count++;
 	if (print == 'a')
-		write(1, "ra\n", 3);
+		ft_strlcpy(st_info->instru, "ra\n", 4);
 	else if (print == 'b')
-		write(1, "rb\n", 3);
-	else if (print == 'c')
-		write (1, "rr\n", 3);
+		ft_strlcpy(st_info->instru, "rb\n", 4);
 }
 
-void	reverse_rotate(t_stack *stack, char print)
+void	reverse_rotate(t_stack *stack, char print, t_info *st_info)
 {
 	if (stack->count <= 1)
 		return ;
 	stack->tail = stack->tail->prev;
 	stack->rotate_count--;
 	if (print == 'a')
-		write(1, "rra\n", 4);
+		ft_strlcpy(st_info->instru, "rra\n", 4);
 	else if (print == 'b')
-		write(1, "rrb\n", 4);
-	else if (print == 'c')
-		write (1, "rrr\n", 4);
+		ft_strlcpy(st_info->instru, "rrb\n", 4);
 }

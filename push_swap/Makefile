@@ -6,7 +6,7 @@
 #    By: yang <yang@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/16 10:41:40 by yang              #+#    #+#              #
-#    Updated: 2021/11/24 19:17:48 by yang             ###   ########.fr        #
+#    Updated: 2021/11/25 14:15:01 by yang             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,12 +22,12 @@ PUSH_SWAP	= push_swap
 
 CHECKER		= checker
 
-SRCS_BOTH	= check_args.c operations.c parse_arg.c utils.c
+SRCS_BOTH	= check_args.c sorting_operations.c utils.c sorting_utils.c
 
-SRCS		= median.c partition.c quicksort.c sort_stack.c sort_1.c sort_2.c sort_3.c \
-				sort_4.c sort_5.c sort_6.c quicksort_main.c
+SRCS		= median.c partition.c quicksort.c sort_stack.c \
+				sorting_1.c sorting_2.c sorting_3.c
 
-SRCS_CHECKER	= checker.c
+SRCS_CHECKER	= checker.c checker_process.c
 
 OBJS_BOTH	= $(SRCS_BOTH:.c=.o)
 
@@ -52,6 +52,7 @@ bonus		: all
 
 clean:
 			rm -f *.o
+			rm -f ../libft/*.o
 			rm -rf $(LIBFT)
 
 fclean:		clean

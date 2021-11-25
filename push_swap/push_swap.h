@@ -6,7 +6,7 @@
 /*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 22:10:23 by yang              #+#    #+#             */
-/*   Updated: 2021/11/24 19:16:10 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/25 14:07:19 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ typedef struct s_info
 	int		a;
 	int		b;
 	int		total;
+	char	last[5];
+	char	instru[5];
 }	t_info;
 
 t_stack	*initialize_stack(t_stack *stack);
@@ -58,15 +60,18 @@ void	check_args(t_stack *st_a, char *argv);
 int		check_sorted(t_stack *st_a);
 t_node	*lstnew(int content);
 void	addfront(t_stack *stack, t_node *new);
+
 void	pop(t_stack *stack);
-void	swap(t_stack *stack, char print);
-void	push(t_stack *st_push, t_stack *st_pop, char print);
-void	rotate(t_stack *stack, char print);
-void	reverse_rotate(t_stack *stack, char print);
+void	swap(t_stack *stack, char print, t_info *st_info);
+void	push(t_stack *st_push, t_stack *st_pop, char print, t_info *st_info);
+void	rotate(t_stack *stack, char print, t_info *st_info);
+void	reverse_rotate(t_stack *stack, char print, t_info *st_info);
+
 int     get_median(t_stack *stack, int size);
 int		partition(t_stack *head_ref, int size, t_info *st_info);
 void	quicksort(t_stack *head_ref, t_info *st_info, int size, int sort_num);
 void	init_sort(t_stack *head_ref, t_info *st_info, int size, int sort_num);
+
 void	sort_stack(t_stack *head_ref, t_info *st_info, int a, int b);
 void	sort_a(t_info *st_info);
 void	sort_b(t_info *st_info);
@@ -80,8 +85,13 @@ void	sort_a2_b3(t_info *st_info);
 void    sort_a3_b3(t_info *st_info);
 void	sort_ab3(t_info *st_info);
 void	sort_rotate(t_info *st_info);
-void	free_elem(t_info *st_info);
+void	sort_b2(t_info *st_info);
+void	print_operation(t_info *st_info);
 
+int	process_swap(t_info *st_info, char *line);
+int	process_rotate(t_info *st_info, char *line);
+int	process_push(t_info *st_info, char *line);
+int	process_reverse(t_info *st_info, char *line);
 /*
 100 numbers:
 100 99 98 97 96 95 94 93 92 91 90 89 88 87 86 85 84 83 82 81 80 79 78 77 76 75 74 73 72 71 70 69 68 67 66 65 64 63 62 61 60 59 58 57 56 55 54 53 52 51 

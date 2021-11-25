@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   partition.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yang <yang@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 16:44:51 by yang              #+#    #+#             */
-/*   Updated: 2021/11/22 23:30:41 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/25 16:15:20 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,12 @@ static int	partition_a(t_info *st_info, int size)
 		temp_a = temp_a->next;
 		if (temp_a->content < pivot)
 		{
-			push(st_info->st_b, st_info->st_a, 'b');
+			push(st_info->st_b, st_info->st_a, 'b', st_info);
 			st_info->half_len++;
 		}
 		else
-			rotate(st_info->st_a, 'a');
+			rotate(st_info->st_a, 'a', st_info);
+		print_operation(st_info);
 	}
 	return (st_info->half_len);
 }
@@ -73,11 +74,12 @@ static int	partition_b(t_info *st_info, int size)
 		temp_b = temp_b->next;
 		if (temp_b->content >= pivot)
 		{
-			push(st_info->st_a, st_info->st_b, 'a');
+			push(st_info->st_a, st_info->st_b, 'a', st_info);
 			st_info->half_len++;
 		}
 		else
-			rotate(st_info->st_b, 'b');
+			rotate(st_info->st_b, 'b', st_info);
+		print_operation(st_info);
 	}
 	return (st_info->half_len);
 }
@@ -111,9 +113,10 @@ int	partition(t_stack *head_ref, int size, t_info *st_info)
 	{
 		//printf("reverse rotate stack\n");
 		if (head_ref == st_info->st_a)
-			reverse_rotate(head_ref, 'a');
+			reverse_rotate(head_ref, 'a', st_info);
 		else
-			reverse_rotate(head_ref, 'b');
+			reverse_rotate(head_ref, 'b', st_info);
+		print_operation(st_info);
 	}
 	return (half_len);
 }

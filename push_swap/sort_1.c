@@ -3,27 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort_1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yang <yang@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 16:01:05 by yang              #+#    #+#             */
-/*   Updated: 2021/11/22 22:33:44 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/25 09:33:41 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*int	count_stack(t_list **stack)
-{
-	t_list	*temp;
-
-	temp = *stack;
-	if (temp->next->next == temp)
-		return TWO;
-	else if (temp->next->next->next == temp)
-		return THREE;
-	else
-		return MORE_THAN_THREE; 
-}*/
 
 void	sort_a3_b0(t_info *st_info)
 {
