@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yang <yang@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 17:24:33 by yang              #+#    #+#             */
-/*   Updated: 2021/11/25 09:32:40 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/29 21:39:35 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,6 @@ char	*get_instruction(t_info *st_info, char **line)
 			exit(1);
 		}
 		ret = get_next_line(1, line);
-		/*printf("\n");
-		t_node *temp;
-		temp = st_info->st_a->tail->next;
-		do
-		{
-			printf("%d\n", temp->content);
-			temp = temp->next;
-		}
-		while (temp != st_info->st_a->tail->next);*/
 	}
 	if (ret == 0)
 	{
@@ -47,7 +38,7 @@ char	*get_instruction(t_info *st_info, char **line)
 	return (*line);
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
@@ -68,4 +59,5 @@ int main(int argc, char *argv[])
 	get_instruction(st_info, line);
 	free(line);
 	free_elem(st_info);
+	return (0);
 }

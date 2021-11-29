@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yang <yang@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 09:05:15 by yang              #+#    #+#             */
-/*   Updated: 2021/11/25 15:24:30 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/29 22:25:14 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	init_sort(t_stack *head_ref, t_info *st_info, int size, int sort_num)
 {
 	st_info->st_a->rotate_count = 0;
 	st_info->st_b->rotate_count = 0;
-	st_info->first_round = false;
 	if (head_ref == st_info->st_a)
 	{
 		st_info->a = size;
@@ -51,4 +50,18 @@ void	sort_stack(t_stack *head_ref, t_info *st_info, int a, int b)
 			b--;
 		}
 	}
+}
+
+int	check_reverse(t_stack *st_a)
+{
+	t_node	*temp;
+
+	temp = st_a->tail->next;
+	while (temp != st_a->tail)
+	{
+		if (temp->content < temp->next->content)
+			return (0);
+		temp = temp->next;
+	}
+	return (1);
 }

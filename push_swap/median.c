@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   median.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yang <yang@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 09:08:35 by yang              #+#    #+#             */
-/*   Updated: 2021/11/22 13:49:07 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/29 21:00:32 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,46 +27,6 @@ static void	copy_data(t_stack *stack, int array[], int size)
 		size--;
 	}
 }
-
-/*static void	merge(int arr[], int l, int m, int r)
-{
-	int	i;
-	int	j;
-	int	k;
-	int	left[m - l + 1];
-	int	right[r - m];
-
-	i = -1;
-	while (++i < (m - l + 1))
-        left[i] = arr[l + i];
-	j = -1;
-    while (++j < (r - m))
-        right[j] = arr[m + 1 + j];
-    i = 0;
-    j = 0;
-    k = l;
-    while (i < (m - l + 1) && j < (r - m)) 
-	{
-        if (left[i] <= right[j])
-            arr[k++] = left[i++];
-        else
-            arr[k++] = right[j++];
-    }
-    while (i < (m - l + 1))
-        arr[k++] = left[i++];
-    while (j < (r - m))
-        arr[k++] = right[j++];
-}
-
-static void merge_sort(int arr[], int l, int r)
-{
-    if (l < r) {
-        int m = l + (r - l) / 2;
-        merge_sort(arr, l, m);
-        merge_sort(arr, m + 1, r);
-		merge(arr, l, m, r);
-    }
-}*/
 
 static void	med_swap(int *a, int *b)
 {

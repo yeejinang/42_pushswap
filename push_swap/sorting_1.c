@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_1.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yang <yang@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 13:50:59 by yang              #+#    #+#             */
-/*   Updated: 2021/11/25 13:50:55 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/29 21:39:02 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	sort_a(t_info *st_info)
 			swap(st_info->st_a, 'a', st_info);
 		else
 			reverse_rotate(st_info->st_a, 'a', st_info);
-		print_operation(st_info);
 	}
 }
 
@@ -37,7 +36,7 @@ void	sort_b(t_info *st_info)
 
 	temp_b = st_info->st_b->tail->next;
 	if (!(temp_b->content > temp_b->next->content
-			&& temp_b->content > temp_b->prev->content))
+			&& temp_b->next->content > temp_b->next->next->content))
 	{
 		if (temp_b->content < temp_b->prev->content
 			&& temp_b->content < temp_b->next->content)
@@ -46,8 +45,8 @@ void	sort_b(t_info *st_info)
 			swap(st_info->st_b, 'b', st_info);
 		else
 			reverse_rotate(st_info->st_b, 'b', st_info);
-		print_operation(st_info);
 	}
+	st_info->st_b->rotate_count = 0;
 }
 
 void	sort_rotate_a(t_info *st_info)
@@ -67,7 +66,6 @@ void	sort_rotate_a(t_info *st_info)
 		else if (st_info->st_a->rotate_count
 			&& temp_a->content < temp_a->next->content)
 			reverse_rotate(st_info->st_a, 'a', st_info);
-		print_operation(st_info);
 	}
 }
 
@@ -88,6 +86,5 @@ void	sort_rotate_b(t_info *st_info)
 		else if (st_info->st_b->rotate_count
 			&& temp_b->content > temp_b->next->content)
 			reverse_rotate(st_info->st_b, 'b', st_info);
-		print_operation(st_info);
 	}
 }
