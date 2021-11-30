@@ -27,7 +27,7 @@ In this project, we are required to sort numbers input by user. Only two stacks 
 ### Checker
 1. ```./checker "6 5 4 3 2 1"```
 2. user input the instructions to sort the numbers
-3. ```control + D ```when finish sort
+3. ```control + D```when finish sort
 4. if sorted, output: OK, else, output: KO!
 
 ## References
