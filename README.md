@@ -18,10 +18,19 @@ In this project, we are required to sort numbers input by user. Only two stacks 
 
 ### Push_Swap
 1. ./push_swap "6 5 4 3 2 1"
-
 ### Checker
 1. ./checker "6 5 4 3 2 1"
 2. user input the instructions to sort the numbers
 3. control + D when finish sort
 4. if sorted, output: OK, else, output: KO!
+
+## References
+1. Data structure
+  https://www.youtube.com/playlist?list=PLBlnK6fEyqRhX6r2uhhlubuF5QextdCSM
+2. Big O notation
+  https://www.youtube.com/watch?v=Mo4vesaut8g
+3. Sorting algorithms
+  https://www.geeksforgeeks.org/sorting-algorithms/
+4. Quicksort
+  https://www.geeksforgeeks.org/quick-sort/
 
