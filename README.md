@@ -20,7 +20,10 @@ In this project, we are required to sort numbers input by user. Only two stacks 
 2. make all: compile both push_swap and checker
 
 ### Push_Swap
-1. ./push_swap "6 5 4 3 2 1"
+1. Output operations
+    ./push_swap "6 5 4 3 2 1" <br/>
+2. To check total operations
+     ./push_swap "6 5 4 3 2 1" | wc -l <br/>
 ### Checker
 1. ./checker "6 5 4 3 2 1"
 2. user input the instructions to sort the numbers
