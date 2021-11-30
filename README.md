@@ -26,9 +26,9 @@ In this project, we are required to sort numbers input by user. Only two stacks 
      ```./push_swap "6 5 4 3 2 1" | wc -l```
 ### Checker
 1. ```./checker "6 5 4 3 2 1"```
-2. user input the instructions to sort the numbers
-3. ```control + D```when finish sort
-4. if sorted, output: OK, else, output: KO!
+2. User input the instructions to sort the numbers
+3. ```ctrl + D```when finish sort
+4. If sorted, output: OK, else, output: KO!
 
 ## References
 1. Data structure
