@@ -13,5 +13,15 @@ In this project, we are required to sort numbers input by user. Only two stacks 
 <img src="https://user-images.githubusercontent.com/81152890/143981126-02b4184d-0ecc-4090-9688-aac03b0db4a0.png" height="70%" width="70%">
 
 ## Instructions
+1. git clone
+2. make all: compile both push_swap and checker
+
 ### Push_Swap
+1. ./push_swap "6 5 4 3 2 1"
+
+### Checker
+1. ./checker "6 5 4 3 2 1"
+2. user input the instructions to sort the numbers
+3. control + D when finish sort
+4. if sorted, output: OK, else, output: KO!
 
