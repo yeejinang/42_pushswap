@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   partition.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yang <yang@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 16:44:51 by yang              #+#    #+#             */
-/*   Updated: 2021/11/29 22:23:13 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/30 14:02:49 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	partition_a(t_info *st_info, int size)
 			push(st_info->st_b, st_info->st_a, 'b', st_info);
 			st_info->half_len++;
 		}
-		else if (check_reverse(st_info->st_a) && size >= 6)
+		else if (check_reverse(st_info->st_a) && size > 6)
 			reverse_rotate(st_info->st_a, 'a', st_info);
 		else
 			rotate(st_info->st_a, 'a', st_info);

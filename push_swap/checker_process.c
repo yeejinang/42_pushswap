@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker_process.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yang <yang@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: yang <yang@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 09:32:13 by yang              #+#    #+#             */
-/*   Updated: 2021/11/29 22:01:58 by yang             ###   ########.fr       */
+/*   Updated: 2021/11/30 14:05:57 by yang             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	process_swap(t_info *st_info, char *line)
 		swap(st_info->st_b, ' ', st_info);
 		return (1);
 	}
+	free(st_info->instru);
 	return (0);
 }
 
@@ -45,6 +46,7 @@ int	process_push(t_info *st_info, char *line)
 		push(st_info->st_b, st_info->st_a, ' ', st_info);
 		return (1);
 	}
+	free(st_info->instru);
 	return (0);
 }
 
@@ -66,6 +68,7 @@ int	process_rotate(t_info *st_info, char *line)
 		rotate(st_info->st_b, ' ', st_info);
 		return (1);
 	}
+	free(st_info->instru);
 	return (0);
 }
 
@@ -87,5 +90,6 @@ int	process_reverse(t_info *st_info, char *line)
 		reverse_rotate(st_info->st_b, ' ', st_info);
 		return (1);
 	}
+	free(st_info->instru);
 	return (0);
 }
